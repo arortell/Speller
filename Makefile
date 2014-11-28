@@ -10,13 +10,13 @@
 CC = clang
 
 # flags to pass compiler
-CFLAGS = -ggdb3 -O0 -Qunused-arguments -std=c99 -Wall -Werror
+CFLAGS = -ggdb3 -O0 -Qunused-arguments -std=gnu99 -Wall -Werror
 
 # name for executable
 EXE = speller
 
 # space-separated list of header files
-HDRS = dictionary.h
+HDRS = dictionary.h hashTable.h
 
 # space-separated list of libraries, if any,
 # each of which should be prefixed with -l

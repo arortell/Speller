@@ -36,4 +36,26 @@ unsigned int size(void);
  */
 bool unload(void);
 
+/**
+ * put correct letters in each bucket of table
+ */
+void key_hash_t(const char *file); 
+
+/**
+ * get word count of file
+ */
+int get_file_size(const char *file);
+
+/**
+ * convert word to all lowercase
+ * to check in dict file
+ */
+void word_tolower(char *word);
+
+/**
+ * hash first letter of word
+ * to get bucket number
+ */
+int hash(const char *str);
+
 #endif // DICTIONARY_H
