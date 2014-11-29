@@ -101,7 +101,7 @@ bool load(const char* dictionary)
 
 		//add new node to list
 		new_node->next = hash_table[hash_val].next;
-		hash_table[hash_val].next = new_node; //<-- segfault here because a space '-65' is being passed as hash_val
+		hash_table[hash_val].next = new_node;
 	}
 	fclose(file);
 	return true;
@@ -110,12 +110,11 @@ bool load(const char* dictionary)
 /**
  * Returns number of words in dictionary if loaded else 0 if not yet loaded.
  */
-//TODO: Walk through this
 unsigned int size(void)
 {
 	bool loaded =  false;
 	
-	for (int i = 0; i < TABLE_LENGTH; i++) //<----- Debugg this
+	for (int i = 0; i < TABLE_LENGTH; i++)
 	{
 		if (hash_table[i].next != NULL)
 		{
@@ -200,7 +199,6 @@ int get_file_size(const char *file_name)
 	return line_count;
 }
 
-//TODO: make sure str[0] is a letter
 int hash(const char *str)
 {
 	if (str == NULL)

@@ -22,9 +22,6 @@
 // prototype
 double calculate(const struct rusage* b, const struct rusage* a);
 
-
-//TODO: segfaults if text is passed in for dict arg
-
 int main(int argc, char* argv[])
 {
     // check for correct number of args
