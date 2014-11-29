@@ -101,7 +101,7 @@ bool load(const char* dictionary)
 
 		//add new node to list
 		new_node->next = hash_table[hash_val].next;
-		hash_table[hash_val].next = new_node;
+		hash_table[hash_val].next = new_node; //<-- segfault here because a space '-65' is being passed as hash_val
 	}
 	fclose(file);
 	return true;
@@ -200,6 +200,7 @@ int get_file_size(const char *file_name)
 	return line_count;
 }
 
+//TODO: make sure str[0] is a letter
 int hash(const char *str)
 {
 	if (str == NULL)
@@ -207,6 +208,12 @@ int hash(const char *str)
 		printf("NULL pointer..\n");
 		exit(EXIT_FAILURE);
 	}
+	if (!isalpha(str[0]))
+	{
+		printf("Cannot hash not a valid value..\n");
+		exit(EXIT_FAILURE);
+	}
+	
 	return (tolower(str[0]) - 97);
 }
 
