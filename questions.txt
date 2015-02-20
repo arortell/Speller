@@ -1,11 +1,12 @@
-0.  TODO
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
+0.  It is a lung disease known as silicosis.
+1.  Returns resource usage for what ever calls it either RUSAGE_SELF, RUSAGE_CHILDREN of RUSAGE_THREAD. 
+2.  16
+3.  Because if they are passed by value a copy is passed it is faster to pass a refernce than to copy and pass a copy.
+4.  Starts at first char in file and checks if is a letter or ' and the ' is not the first char in the word.If it is
+it gets added to the word and index is incremented. It then checks if the word is too long if it is the while loop moves the file postion indicator to the end of that string of chars and reset index .If the char is a digit that while loop moves the file postion indicator to the end of the string of chars and reset index.If the char is not a digit not a num or a ' that it must be the end of the word add a '\0' to the end of the word increment the number of words, time the check process and pront the misspelled words. 
+5.  If you read in word by word you would have to go back check each char from that word later. This way you can check each char as you read them.
+6.  They are declared as const so that they acn not be changed. 
+7.  I used a hashtable with two nodes a table node that contains a char for the letter that corresponds to that bucket and a pointer to the nodes.The nodes contain the word and a pointer to the next node.
+8.  I was not able to speed it up by much.
+9.  I Changed my table from sorted to unsorted trying to improve load time.
+10. My check time is unacceptable.

@@ -12,6 +12,7 @@
 
 table_node hash_table[TABLE_LENGTH];
 
+bool loaded = false;
 /**
  * Returns true if word is in dictionary else false.
  */
@@ -87,16 +88,9 @@ bool load(const char* dictionary)
 			index++;
 		}
 		
-		//terminate string
 		word[index] ='\0';
-		
-		//hash word
 		hash_val = hash(word);
-	
-		//copy string into node
 		strcpy(new_node->word, word);
-	
-		//reset index
 		index = 0;
 
 		//add new node to list
@@ -104,6 +98,7 @@ bool load(const char* dictionary)
 		hash_table[hash_val].next = new_node;
 	}
 	fclose(file);
+	loaded = true;
 	return true;
 }
 
@@ -112,17 +107,6 @@ bool load(const char* dictionary)
  */
 unsigned int size(void)
 {
-	bool loaded =  false;
-	
-	for (int i = 0; i < TABLE_LENGTH; i++)
-	{
-		if (hash_table[i].next != NULL)
-		{
-			loaded = true;
-			break;
-		}
-	}
-	
     if (!loaded)
 	{
 		printf("Dictionary not loaded..\n");
@@ -157,7 +141,6 @@ bool unload(void)
 	for (int i = 0; i < TABLE_LENGTH; i++)
 	{
 		node *cursor = hash_table[i].next;
-
 		while (cursor != NULL)
 		{
 			node *temp = cursor;
@@ -165,6 +148,7 @@ bool unload(void)
 			free(temp);
 		}
 	}
+	loaded = false;
 	return true;
 }
 
@@ -223,6 +207,6 @@ void word_tolower(char* word)
 		exit(EXIT_FAILURE);
 	}
 
-	for (int i = 0, length = strlen(word); i  < length; i ++)
+	for (int i = 0, length = strlen(word); i  < length; i++)
 		word[i] = tolower(word[i]);
 }
